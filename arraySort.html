@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //翻转数组
+             var revArr = [1,2,3,4,5,6];
+            //  var newArr = revArr.reverse();
+             /*   var newArr = [];
+              1.
+                for(var i=0;i<revArr.length;i++) {
+                    newArr[newArr.length] = revArr[revArr.length-1-i];
+                }  
+                2.
+                for(var i=revArr.length-1;i>=0;i--) {
+                    newArr[newArr.length] = revArr[i]; 
+                } 
+             console.log(newArr); */ 
+             //3.原数组前后交换位置 无新数组
+                for(var i=0;i<revArr.length/2;i++) {
+                    var temp = revArr[i];
+                    revArr[i] = revArr[revArr.length-1-i];
+                    revArr[revArr.length-1-i] = temp;
+                }
+                console.log(revArr);
+        //数组冒泡排序 比较轮数 = 元素个数 - 1;最后一轮不需要比了
+        //            比较次数 = 元素个数 - 1;因为至少两两比较
+        //相邻元素比较 满足条件就交换位置 外循环控制轮数 内循环控制次数
+        //次数优化: 每多比较一轮 少比较一次  轮数优化: 如果提前完成就不在比较
+             var oldArr = [5,1,0,6,4,3,2];
+             var m = 0;
+             var n = 0;
+             //升幂排序
+            for(var i=0;i<oldArr.length-1;i++) {
+                 var bool = true;
+                 for(var j=0;j<oldArr.length-1-i;j++) {//每多比较一轮 少比较一次
+                     if(oldArr[j] > oldArr[j+1]) {
+                         var temp = oldArr[j];
+                         oldArr[j] = oldArr[j+1];
+                         oldArr[j+1] = temp;
+                         bool = false; //有一次交换位置 就不能跳出循环
+                     }
+                     n++;//又比较一次
+                 }
+                  m++;//又比较一轮
+                 if(bool) {//不再交换位置跳出循环
+                     break;
+                 }               
+             }    
+             console.log(oldArr);
+             console.log(m);
+             console.log(n);
+             //降幂排序
+           /*   for(var j=0;j<oldArr.length-1;j++) {
+                 var bool = true;
+                 for(var i=0;i<oldArr.length-1-j;i++) {
+                     if(oldArr[i] < oldArr[i+1]) {
+                         var temp = oldArr[i+1];
+                         oldArr[i+1] = oldArr[i];
+                         oldArr[i] = temp;
+                         bool = false;
+                     }
+                 }
+                 if(bool) {
+                     break;
+                 }
+             }  */
+             
+    </script>
+</body>
+</html>
